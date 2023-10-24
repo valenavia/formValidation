@@ -18,17 +18,20 @@ function validacionContrasenia() {
 
 function terminosChecked(){
 
-    let checkBtn = document.getElementById("terminos");
-    let btnTyS = document.getElementById("aceptarTerminos");
+    const terminos = document.getElementById("terminos");
+    const divAlert = document.getElementById("alertaTerminos");
 
-    console.log(checkBtn.checked);
-
-    if(!checkBtn.checked){
-        checkBtn.setCustomValidity("Debe aceptar los términos del servicio");
+    if(!terminos.checked){
+        divAlert.innerHTML = `
+            <p style="color: #dc3545;">Debe aceptar los términos del servicio.</p>
+        `
+    }else{
+        divAlert.innerHTML = "";
     }
 }
 
-document.addEventListener("input", () => {
+
+document.addEventListener("click", () => {
     validacionContrasenia();
     terminosChecked();
 });
